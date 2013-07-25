@@ -8,7 +8,7 @@ module Vienna
 
       $global.addEventListener 'hashchange', -> { update }, false
 
-      instance_eval(&block) if block
+      yield self if block_given?
     end
 
     def route(path, &handler)
